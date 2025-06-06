@@ -54,15 +54,15 @@ export default function HomePage() {
         </div>
         <Hero
           name={siteConfig.name}
-          role={siteConfig.role}
           description={siteConfig.description}
           adjectives={siteConfig.adjectives}
-          ctaPrimary={{
+          schoolInfo={siteConfig.role}
+          ctaProjects={{
             text: "View Projects",
             icon: <Briefcase className="w-4 h-4" />,
             onClick: () => scrollToSection("projects"),
           }}
-          ctaSecondary={{
+          ctaContact={{
             text: "Contact Me",
             icon: <Mail className="w-4 h-4" />,
             onClick: () => scrollToSection("contact"),
@@ -102,8 +102,6 @@ export default function HomePage() {
                 {...project}
                 containerHeight="250px"
                 containerWidth="100%"
-                imageHeight="250px"
-                imageWidth="100%"
               />
             ))}
           </div>
