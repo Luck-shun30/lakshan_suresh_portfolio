@@ -1,81 +1,79 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { MoveRight } from "lucide-react";
+import { MoveRight, Mail, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface HeroProps {
   name: string;
-  role: string;
   description: string;
   adjectives?: string[];
-  ctaPrimary?: {
+  ctaContact?: {
     text: string;
     icon?: React.ReactNode;
     onClick?: () => void;
   };
-  ctaSecondary?: {
+  ctaProjects?: {
     text: string;
     icon?: React.ReactNode;
     onClick?: () => void;
   };
+  schoolInfo?: string;
 }
 
 export function Hero({
   name,
-  role,
   description,
-  adjectives = ["amazing", "new", "wonderful", "beautiful", "smart"],
-  ctaPrimary,
-  ctaSecondary,
+  adjectives = ["developer", "student", "creator"],
+  ctaContact,
+  ctaProjects,
+  schoolInfo
 }: HeroProps) {
-  const [titleNumber, setTitleNumber] = useState(0);
+  const [wordNumber, setWordNumber] = useState(0);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      if (titleNumber === adjectives.length - 1) {
-        setTitleNumber(0);
-      } else {
-        setTitleNumber(titleNumber + 1);
-      }
+      setWordNumber((prev) => (prev + 1) % adjectives.length);
     }, 2000);
     return () => clearTimeout(timeoutId);
-  }, [titleNumber, adjectives]);
+  }, [wordNumber, adjectives]);
 
   return (
-    <div className="w-full">
+    <div className="hero w-full min-h-screen flex flex-col items-center justify-center pt-32 text-center">
       <div className="container mx-auto">
-        <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
-          <div>
-            <Button variant="secondary" size="sm" className="gap-4">
-              {role} <MoveRight className="w-4 h-4" />
-            </Button>
-          </div>
-          <div className="flex gap-4 flex-col">
-            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
-              <span className="text-spektr-cyan-50">Hi, I&apos;m {name}</span>
+        <div className="flex gap-8 items-center justify-center flex-col">
+
+          {schoolInfo && (
+            <div className="mb-6 px-4 py-2 rounded-full bg-background/5 border border-border backdrop-blur-lg text-sm text-muted-foreground">
+              {schoolInfo}
+            </div>
+          )}
+
+          <div className="flex gap-4 flex-col items-center">
+            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular text-white">
+              Hi, I&apos;m {name}
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
-                {adjectives.map((adjective, index) => (
+                {adjectives.map((word, index) => (
                   <motion.span
                     key={index}
-                    className="absolute font-semibold"
-                    initial={{ opacity: 0, y: "-100" }}
+                    className="absolute font-semibold whitespace-nowrap"
+                    initial={{ opacity: 0, y: "-1000" }}
                     transition={{ type: "spring", stiffness: 50 }}
                     animate={
-                      titleNumber === index
+                      wordNumber === index
                         ? {
                             y: 0,
                             opacity: 1,
                           }
                         : {
-                            y: titleNumber > index ? -150 : 150,
+                            y: wordNumber > index ? 1050 : -1000,
                             opacity: 0,
                           }
                     }
                   >
-                    {adjective}
+                    {word}
                   </motion.span>
                 ))}
               </span>
@@ -85,26 +83,24 @@ export function Hero({
               {description}
             </p>
           </div>
-          <div className="flex flex-row gap-3">
-            {ctaSecondary && (
+          <div className="flex flex-row gap-3 justify-center">
+            {ctaContact && (
               <Button
                 size="lg"
-                className="gap-4"
+                className="gap-2"
                 variant="outline"
-                onClick={ctaSecondary.onClick}
+                onClick={ctaContact.onClick}
               >
-                {ctaSecondary.text}
-                {ctaSecondary.icon}
+                {ctaContact.text} {ctaContact.icon ? ctaContact.icon : <Mail className="w-4 h-4" />}
               </Button>
             )}
-            {ctaPrimary && (
+            {ctaProjects && (
               <Button
                 size="lg"
-                className="gap-4"
-                onClick={ctaPrimary.onClick}
+                className="gap-2"
+                onClick={ctaProjects.onClick}
               >
-                {ctaPrimary.text}
-                {ctaPrimary.icon}
+                {ctaProjects.text} {ctaProjects.icon ? ctaProjects.icon : <Briefcase className="w-4 h-4" />}
               </Button>
             )}
           </div>

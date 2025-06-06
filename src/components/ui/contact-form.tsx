@@ -23,7 +23,7 @@ export function ContactForm() {
       await new Promise(resolve => setTimeout(resolve, 1000));
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    } catch (_error) {
+    } catch (_) {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

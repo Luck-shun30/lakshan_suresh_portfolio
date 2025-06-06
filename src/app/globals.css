@@ -163,3 +163,11 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-zinc-600;
 }
+
+* {
+  scroll-behavior: smooth;
+}
+
+.hero {
+  height: 100vh;
+}
