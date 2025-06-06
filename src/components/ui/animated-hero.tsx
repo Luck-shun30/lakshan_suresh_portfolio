@@ -40,7 +40,7 @@ export function Hero({
   }, [wordNumber, adjectives]);
 
   return (
-    <div className="hero w-full min-h-screen flex flex-col items-center justify-center pt-32 text-center">
+    <div className="hero w-full min-h-screen flex flex-col items-center justify-center text-center">
       <div className="container mx-auto">
         <div className="flex gap-8 items-center justify-center flex-col">
 
