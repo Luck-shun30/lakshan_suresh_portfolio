@@ -81,7 +81,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                   enable: false,
                   mode: "repulse",
                 },
-                resize: true as any,
+                resize: { enable: true },
               },
               modes: {
                 push: {
@@ -110,7 +110,8 @@ export const SparklesCore = (props: ParticlesProps) => {
               number: {
                 density: {
                   enable: true,
-                  area: 800,
+                  width: 400,
+                  height: 400,
                 },
                 value: particleDensity || 100,
               },

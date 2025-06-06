@@ -63,7 +63,7 @@ export const siteConfig = {
       },
     },
   ],
-  adjectives: ["developer", "entrepreneur", "problem solver", "tech enthusiast"] as string[],
+  adjectives: ["developer", "web designer", "entrepreneur", "problem solver", "tech enthusiast"] as string[],
   contact: {
     title: "Get in Touch",
     content: "I'm always open to new opportunities and collaborations. Feel free to reach out if you'd like to work together or just say hello!",

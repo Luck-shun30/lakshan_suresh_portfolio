@@ -13,8 +13,6 @@ interface TiltedCardProps {
   link?: string;
   containerHeight?: React.CSSProperties['height'];
   containerWidth?: React.CSSProperties['width'];
-  imageHeight?: React.CSSProperties['height'];
-  imageWidth?: React.CSSProperties['width'];
   scaleOnHover?: number;
   rotateAmplitude?: number;
   showMobileWarning?: boolean;
@@ -40,8 +38,6 @@ export const TiltedCard: FC<TiltedCardProps> = ({
   link,
   containerHeight = "300px",
   containerWidth = "100%",
-  imageHeight = "300px",
-  imageWidth = "100%",
   scaleOnHover = 1.02,
   rotateAmplitude = 5,
   showMobileWarning = true,
