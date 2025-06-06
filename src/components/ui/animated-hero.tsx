@@ -51,7 +51,7 @@ export function Hero({
           )}
 
           <div className="flex gap-4 flex-col items-center">
-            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular text-white">
+            <h1 className="text-5xl md:text-7xl tracking-tighter text-center font-regular text-white">
               Hi, I&apos;m {name}
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
