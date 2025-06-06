@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { MoveRight, Mail, Briefcase } from "lucide-react";
+import { Mail, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface HeroProps {
