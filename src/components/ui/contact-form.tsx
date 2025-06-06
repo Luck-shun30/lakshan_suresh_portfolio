@@ -94,7 +94,7 @@ export function ContactForm() {
         <p className="text-green-500 text-center">Message sent successfully!</p>
       )}
       {submitStatus === "error" && (
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        // eslint-disable-next-line
         <p className="text-red-500 text-center">Failed to send message. Please try again.</p>
       )}
     </form>
