@@ -7,6 +7,7 @@ import { TiltedCard } from "@/components/ui/tilted-card";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { ContactForm } from "@/components/ui/contact-form";
 import { siteConfig } from "@/config/site";
+import { ChromeGrid } from "@/components/ui/chrome-grid";
 
 export default function HomePage() {
   const navItems = [
@@ -41,16 +42,7 @@ export default function HomePage() {
       
       <section id="home" className="relative min-h-screen flex items-center justify-center">
         <div className="absolute inset-0">
-          <SparklesCore
-            id="tsparticlesfullpage"
-            background="transparent"
-            minSize={0.6}
-            maxSize={1.4}
-            particleDensity={100}
-            className="w-full h-full"
-            particleColor="#FFFFFF"
-            speed={1}
-          />
+          <ChromeGrid />
         </div>
         <Hero
           name={siteConfig.name}
@@ -93,7 +85,19 @@ export default function HomePage() {
       </section>
 
       <section id="projects" className="py-20 relative">
-        <div className="container mx-auto px-4">
+        <div className="absolute inset-0">
+          <SparklesCore
+            id="tsparticlesfullpage"
+            background="transparent"
+            minSize={0.6}
+            maxSize={1.4}
+            particleDensity={100}
+            className="w-full h-full"
+            particleColor="#FFFFFF"
+            speed={1}
+          />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-4xl font-bold text-center mb-12">My Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {siteConfig.projects.map((project, index) => (
