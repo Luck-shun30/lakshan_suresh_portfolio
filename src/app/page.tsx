@@ -41,25 +41,27 @@ export default function HomePage() {
       <NavBar items={navItems} />
       
       <section id="home" className="relative min-h-screen flex items-center justify-center">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 z-0">
           <ChromeGrid />
         </div>
-        <Hero
-          name={siteConfig.name}
-          description={siteConfig.description}
-          adjectives={siteConfig.adjectives}
-          schoolInfo={siteConfig.role}
-          ctaProjects={{
-            text: "View Projects",
-            icon: <Briefcase className="w-4 h-4" />,
-            onClick: () => scrollToSection("projects"),
-          }}
-          ctaContact={{
-            text: "Contact Me",
-            icon: <Mail className="w-4 h-4" />,
-            onClick: () => scrollToSection("contact"),
-          }}
-        />
+        <div className="relative z-10 w-full flex items-center justify-center">
+          <Hero
+            name={siteConfig.name}
+            description={siteConfig.description}
+            adjectives={siteConfig.adjectives}
+            schoolInfo={siteConfig.role}
+            ctaProjects={{
+              text: "View Projects",
+              icon: <Briefcase className="w-4 h-4" />,
+              onClick: () => scrollToSection("projects"),
+            }}
+            ctaContact={{
+              text: "Contact Me",
+              icon: <Mail className="w-4 h-4" />,
+              onClick: () => scrollToSection("contact"),
+            }}
+          />
+        </div>
       </section>
 
       <section id="about" className="py-20 bg-zinc-900/50 relative">
